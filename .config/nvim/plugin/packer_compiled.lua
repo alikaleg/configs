@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/home/alikaleg/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["cmp-nvim-lsp-signature-help"] = {
+    loaded = true,
+    path = "/home/alikaleg/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp-signature-help",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp-signature-help"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/home/alikaleg/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
