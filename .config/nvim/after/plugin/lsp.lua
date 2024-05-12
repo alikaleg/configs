@@ -43,11 +43,6 @@ cmp.setup({
 		['<C-u>'] = cmp.mapping.scroll_docs(-4),
 		['<C-d>'] = cmp.mapping.scroll_docs(4),
 	}),
-	snippet = {
-		expand = function(args)
-			require('luasnip').lsp_expand(args.body)
-		end,
-	},
 })
 
 
@@ -62,7 +57,6 @@ require('mason-lspconfig').setup({
 
         pylsp = function()
             require('lspconfig').pylsp.setup({
-
                 settings = {
                     pylsp = {
                         plugins = {
@@ -73,10 +67,9 @@ require('mason-lspconfig').setup({
                         }
                     }
                 }
-
             })
-
         end, 
+
     },
 })
 

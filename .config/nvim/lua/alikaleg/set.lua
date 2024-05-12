@@ -25,3 +25,6 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 vim.opt.colorcolumn = "100"
+
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
