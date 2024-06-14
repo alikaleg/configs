@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/home/alikaleg/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp-signature-help",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp-signature-help"
   },
+  ["git-blame.nvim"] = {
+    loaded = true,
+    path = "/home/alikaleg/.local/share/nvim/site/pack/packer/start/git-blame.nvim",
+    url = "https://github.com/f-person/git-blame.nvim"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/home/alikaleg/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
@@ -149,6 +154,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/alikaleg/.local/share/nvim/site/pack/packer/start/vim-closer",
     url = "https://github.com/rstacruz/vim-closer"
+  },
+  ["vim-tabby"] = {
+    loaded = true,
+    path = "/home/alikaleg/.local/share/nvim/site/pack/packer/start/vim-tabby",
+    url = "https://github.com/TabbyML/vim-tabby"
   }
 }
 

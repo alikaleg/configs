@@ -8,7 +8,7 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
-vim.opt.smartindent = true
+vim.opt.smartindent = false
 
 vim.opt.wrap = false
 vim.opt.swapfile = false
@@ -28,3 +28,5 @@ vim.opt.colorcolumn = "100"
 
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
+
+vim.g.tabby_keybinding_accept = '<A-y>'

@@ -4,6 +4,7 @@ return require('packer').startup(function(use)
 
   use 'wbthomason/packer.nvim'
 
+  use 'TabbyML/vim-tabby'
   use 'rstacruz/vim-closer'
 
   use {
@@ -41,5 +42,5 @@ return require('packer').startup(function(use)
       }
   }
   use 'hrsh7th/cmp-nvim-lsp-signature-help'
- 
+  use 'f-person/git-blame.nvim'
 end)
