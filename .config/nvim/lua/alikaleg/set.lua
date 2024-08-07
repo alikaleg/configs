@@ -8,6 +8,7 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
+vim.opt.autoindent = false
 vim.opt.smartindent = false
 
 vim.opt.wrap = false
@@ -30,3 +31,4 @@ vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
 
 vim.g.tabby_keybinding_accept = '<A-y>'
+vim.g.pyindent_open_paren = 'shiftwidth()'
