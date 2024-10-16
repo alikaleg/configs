@@ -73,7 +73,7 @@ eval "$(pyenv init --path)"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git pyenv zoxide compleat extract)
+plugins=(git pyenv zoxide compleat extract poetry)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -109,4 +109,12 @@ alias vim=nvim
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
+export EDITOR=nvim
+
+export PATH="/home/alikaleg/.local/bin:$PATH"
+alias c2="/home/alikaleg/work/c2cli/.venv/bin/c2"
+
+. /home/alikaleg/.config/c2/c2completion.zsh
