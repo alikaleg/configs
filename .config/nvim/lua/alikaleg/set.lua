@@ -34,3 +34,5 @@ vim.g.tabby_keybinding_accept = '<A-y>'
 vim.g.pyindent_open_paren = 'shiftwidth()'
 
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
+vim.opt.laststatus = 3
