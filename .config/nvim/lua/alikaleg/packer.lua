@@ -55,4 +55,10 @@ return require('packer').startup(function(use)
     "aserowy/tmux.nvim",
     config = function() return require("tmux").setup() end
   })
+  use {
+    "nvim-zh/colorful-winsep.nvim",
+    config = function ()
+        require('colorful-winsep').setup()
+    end
+  }
 end)
