@@ -64,6 +64,7 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
+    awful.layout.suit.max,
     lain.layout.termfair.center,
     -- awful.layout.suit.floating,
     -- awful.layout.suit.tile,
@@ -74,7 +75,6 @@ awful.layout.layouts = {
     awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,
     -- awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.max,
     -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.magnifier,
     -- awful.layout.suit.corner.nw,
@@ -452,7 +452,7 @@ awful.rules.rules = {
     { rule = { },
     properties = { 
         --border_width = beautiful.border_width,
-        border_width = 0,
+        border_width = 1,
         border_color = beautiful.border_normal,
         focus = awful.client.focus.filter,
         raise = true,
