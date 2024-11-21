@@ -42,14 +42,6 @@ return require('packer').startup(function(use)
     }
     use 'hrsh7th/cmp-nvim-lsp-signature-help'
     use 'f-person/git-blame.nvim'
-    use {
-        'rmagatti/auto-session',
-        config = function()
-            require("auto-session").setup {
-                suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/"},
-            }
-        end
-    }
     use({
         "aserowy/tmux.nvim",
         config = function() return require("tmux").setup() end
@@ -66,6 +58,12 @@ return require('packer').startup(function(use)
         config = function()
             require("neogit").setup {}
         end
+    })
+    use({
+        "ThePrimeagen/harpoon",
+        requires = {
+            "nvim-lua/plenary.nvim",         -- required
+        },
     })
 
     --use 'TabbyML/vim-tabby'
