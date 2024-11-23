@@ -1,0 +1,12 @@
+[user]
+	email = olegich147@gmail.com
+	name = alikaleg
+
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+
+[includeIf "gitdir:~/work/"]
+  path = .gitconfig-croc
