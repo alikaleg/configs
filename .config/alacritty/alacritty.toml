@@ -1,4 +1,4 @@
-import = ["./rose-pine.toml"]
+import = ["~/.config/alacritty/github_dark_tritanopia.toml"]
 
 [font]
 size = 13
@@ -12,4 +12,4 @@ x = 10
 y = 10
 
 [window]
-opacity = 0.8
+opacity = 1
