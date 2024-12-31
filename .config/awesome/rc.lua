@@ -51,7 +51,7 @@ end
 beautiful.init(string.format("%s/.config/awesome/themes/default/theme.lua", os.getenv("HOME")))
 
 -- This is used later as the default terminal and editor to run.
-terminal = "alacritty"
+terminal = "ghostty"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -571,6 +571,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 awful.spawn.with_shell("numlockx")
 awful.spawn.with_shell("setxkbmap -layout \"us,ru\" -option grp:alt_shift_toggle")
-awful.spawn.with_shell("bash ~/.screenlayout/home.sh")
 awful.spawn.with_shell("picom --daemon")
+awful.spawn.with_shell("bash ~/.screenlayout/home.sh")
 awful.spawn.with_shell("sleep 1; nitrogen --restore")

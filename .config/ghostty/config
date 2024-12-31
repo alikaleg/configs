@@ -1,0 +1,7 @@
+font-family = "BlexMono"
+window-decoration = false
+window-padding-x = 20
+window-padding-y = 20, 0
+theme = "Dracula"
+confirm-close-surface = false
+font-size = 13
