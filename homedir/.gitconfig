@@ -10,3 +10,6 @@
 
 [includeIf "gitdir:~/work/"]
   path = .gitconfig-croc
+
+[core]
+    editor = nvim
