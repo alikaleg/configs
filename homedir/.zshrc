@@ -107,7 +107,7 @@ alias vim=nvim
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export EDITOR=nvim
 

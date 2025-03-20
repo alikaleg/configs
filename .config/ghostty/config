@@ -1,7 +1,8 @@
-font-family = "BlexMono"
+font-family = "BlexMono Nerd Font Mono"
+font-style-bold = true
 window-decoration = false
 window-padding-x = 20
 window-padding-y = 20, 0
-theme = "Dracula"
+theme = "rose-pine"
 confirm-close-surface = false
-font-size = 13
+font-size = 11
