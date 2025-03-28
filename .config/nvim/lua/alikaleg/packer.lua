@@ -11,12 +11,15 @@ return require('packer').startup(function(use)
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
-    use ({
+    --[[use ({
         'rose-pine/neovim', as = 'rose-pine',
         config = function()
             vim.cmd('colorscheme rose-pine')
         end
-    })
+    })]]
+
+    use 'fugalh/desert.vim'
+    use 'nvim-tree/nvim-web-devicons'
 
     use {
         'nvim-treesitter/nvim-treesitter',
@@ -66,18 +69,5 @@ return require('packer').startup(function(use)
         },
     })
 
-    use {
-        'pwntester/octo.nvim',
-        requires = {
-            'nvim-lua/plenary.nvim',
-            'nvim-telescope/telescope.nvim',
-            -- OR 'ibhagwan/fzf-lua',
-            -- OR 'folke/snacks.nvim',
-            'nvim-tree/nvim-web-devicons',
-        },
-        config = function ()
-            require"octo".setup()
-        end
-    }
     --use 'TabbyML/vim-tabby'
 end)

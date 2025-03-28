@@ -1,4 +1,4 @@
-require("rose-pine").setup({
+--[[ require("rose-pine").setup({
     variant = "main", -- auto, main, moon, or dawn
     dark_variant = "main", -- main, moon, or dawn
     dim_inactive_windows = false,
@@ -67,8 +67,6 @@ require("rose-pine").setup({
     end,
 })
 
-vim.cmd("colorscheme rose-pine")
-
 require("rose-pine").setup({
 	highlight_groups = {
 		TelescopeBorder = { fg = "highlight_high", bg = "none" },
@@ -79,3 +77,6 @@ require("rose-pine").setup({
 		TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
 	},
 })
+]]
+
+vim.cmd("colorscheme desert")
