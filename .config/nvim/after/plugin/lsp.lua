@@ -67,10 +67,10 @@ require('mason-lspconfig').setup({
                 }
             })
         end, 
-        csharp_ls = function()
-            require('lspconfig').csharp_ls.setup({})
-        end,
 
+        clangd = function()
+            require('lspconfig').clangd.setup({})
+        end, 
     },
 })
 

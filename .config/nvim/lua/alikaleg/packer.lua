@@ -68,6 +68,7 @@ return require('packer').startup(function(use)
             "nvim-lua/plenary.nvim",         -- required
         },
     })
+    use 'ggandor/leap.nvim'
 
     --use 'TabbyML/vim-tabby'
 end)

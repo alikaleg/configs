@@ -112,6 +112,6 @@ alias vim=nvim
 export EDITOR=nvim
 
 export PATH="/home/alikaleg/.local/bin:$PATH"
-alias c2="/home/alikaleg/work/c2cli/.venv/bin/c2"
+# alias c2="/home/alikaleg/work/c2cli/.venv/bin/c2"
 
 . /home/alikaleg/.config/c2/c2completion.zsh
