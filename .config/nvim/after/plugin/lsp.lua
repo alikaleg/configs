@@ -11,6 +11,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', opts)
     vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help({border="single"})<cr>', opts)
+    vim.keymap.set('n', 'gq', '<cmd>lua vim.lsp.buf.format()<cr>', opts)
   end
 })
 
@@ -70,32 +71,38 @@ blink.setup({
 
 require('mason').setup({})
 
-require('mason-lspconfig').setup({
-    ensure_installed = {},
-    handlers = {
-        function(server_name)
-            require('lspconfig')[server_name].setup({})
-        end,
-
-        pylsp = function()
-            require('lspconfig').pylsp.setup({
-                settings = {
-                    pylsp = {
-                        plugins = {
-                            pycodestyle = {
-                                ignore = {'W391', 'W503'},
-                                maxLineLength = 100
-                            }
-                        }
-                    }
-                }
-            })
-        end, 
-
-        clangd = function()
-            require('lspconfig').clangd.setup({})
-        end, 
-    },
+vim.lsp.config("pylsp", {
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+            enabled = false,
+        },
+        pyflakes = {
+            enabled = false,
+        },
+        autopep8 = {
+            enabled = false,
+        },
+        yapf = {
+            enabled = false,
+        },
+      }
+    }
+  }
 })
+vim.lsp.enable('pylsp')
+
+vim.lsp.config('ruff', {
+  init_options = {
+      settings = {
+          -- Ruff language server settings go here
+          fixAll = true,
+          organizeImports = true
+      }
+  }
+})
+
+vim.lsp.enable('ruff')
 
 vim.diagnostic.config({ virtual_text = true })
