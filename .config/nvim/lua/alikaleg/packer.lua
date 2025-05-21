@@ -4,7 +4,6 @@ return require('packer').startup(function(use)
 
     use 'wbthomason/packer.nvim'
 
-    use 'rstacruz/vim-closer'
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.6',
@@ -18,6 +17,12 @@ return require('packer').startup(function(use)
         end
     })]]
 
+    use 'williamboman/mason.nvim'
+    use 'williamboman/mason-lspconfig.nvim'
+    use 'neovim/nvim-lspconfig'
+
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+
     use 'fugalh/desert.vim'
     use 'nvim-tree/nvim-web-devicons'
 
@@ -28,22 +33,7 @@ return require('packer').startup(function(use)
             ts_update()
         end,
     }
-    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-    use {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v3.x',
-        requires = {
-            --- Uncomment the two plugins below if you want to manage the language servers from neovim
-            {'williamboman/mason.nvim'},
-            {'williamboman/mason-lspconfig.nvim'},
 
-            {'neovim/nvim-lspconfig'},
-            {'hrsh7th/nvim-cmp'},
-            {'hrsh7th/cmp-nvim-lsp'},
-            {'L3MON4D3/LuaSnip'},
-        }
-    }
-    use 'hrsh7th/cmp-nvim-lsp-signature-help'
     use 'f-person/git-blame.nvim'
     use({
         "aserowy/tmux.nvim",
@@ -69,6 +59,13 @@ return require('packer').startup(function(use)
         },
     })
     use 'ggandor/leap.nvim'
+
+    use({
+        'saghen/blink.cmp',
+        requires = {
+            "rafamadriz/friendly-snippets",
+        },
+    })
 
     --use 'TabbyML/vim-tabby'
 end)

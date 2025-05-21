@@ -80,3 +80,7 @@ require("rose-pine").setup({
 ]]
 
 vim.cmd("colorscheme desert")
+
+vim.api.nvim_set_hl(0, 'NormalFloat', {
+    link = 'Normal',
+})
