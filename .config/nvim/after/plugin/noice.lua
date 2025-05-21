@@ -15,3 +15,6 @@ require("noice").setup({
     lsp_doc_border = true, -- add a border to hover docs and signature help
   },
 })
+require("notify").setup({
+    background_colour = "Normal",
+})
