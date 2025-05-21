@@ -40,6 +40,10 @@ blink.setup({
                 columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
             },
         },
+        ghost_text = {
+            enabled = true,
+            show_with_menu = true
+        }
     },
 
     -- Default list of enabled providers defined so that you can extend it
@@ -59,7 +63,7 @@ blink.setup({
     cmdline = {
         keymap = { preset = 'inherit' },
         completion = {
-            menu = { auto_show = true },
+            menu = { auto_show = false },
         },
     }
 })
