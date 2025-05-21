@@ -55,30 +55,14 @@ blink.setup({
     -- See the fuzzy documentation for more information
     fuzzy = { implementation = "prefer_rust_with_warning"},
 
-    signature = { enabled = true }
+    --signature = { enabled = true },
+    cmdline = {
+        keymap = { preset = 'inherit' },
+        completion = {
+            menu = { auto_show = true },
+        },
+    }
 })
---[[
-local cmp = require('cmp')
-cmp.setup({
-	sources = {
-		{name = 'nvim_lsp'},
-        { name = 'nvim_lsp_signature_help' },
-	},
-	window = {
-		--completion = cmp.config.window.bordered(),
-		--documentation = cmp.config.window.bordered(),
-	},
-	mapping = cmp.mapping.preset.insert({
-		["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-		["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-		["<C-y>"] = cmp.mapping.confirm({ select = true }),
-		['<C-Space>'] = cmp.mapping.complete(),
-		['<C-u>'] = cmp.mapping.scroll_docs(-4),
-		['<C-d>'] = cmp.mapping.scroll_docs(4),
-	}),
-})
-]]
-
 
 require('mason').setup({})
 
