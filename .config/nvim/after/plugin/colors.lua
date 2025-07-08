@@ -78,8 +78,11 @@ require("rose-pine").setup({
 	},
 })
 ]]
-
-vim.cmd("colorscheme desert")
+-- rose-pine
+-- desert
+--
+vim.opt.background = "dark"
+vim.cmd("colorscheme PaperColor")
 
 vim.api.nvim_set_hl(0, 'NormalFloat', {
     link = 'Pmenu',

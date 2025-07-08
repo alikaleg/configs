@@ -16,6 +16,7 @@ return require('packer').startup(function(use)
             vim.cmd('colorscheme rose-pine')
         end
     })]]
+    use 'NLKNguyen/papercolor-theme'
 
     use 'williamboman/mason.nvim'
     use 'neovim/nvim-lspconfig'
@@ -73,6 +74,8 @@ return require('packer').startup(function(use)
             "rcarriga/nvim-notify",
         },
     })
+
+    use "stevearc/aerial.nvim"
 
     --use 'TabbyML/vim-tabby'
 end)

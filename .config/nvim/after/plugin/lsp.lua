@@ -51,6 +51,21 @@ blink.setup({
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
         default = { 'lsp', 'path', 'snippets', 'buffer' },
+        providers = {
+			snippets = {
+				score_offset = 1,
+			},
+			lsp = {
+				score_offset = 4,
+			},
+			path = {
+                min_keyword_length = 3,
+				score_offset = 2,
+			},
+			buffer = {
+				score_offset = 3,
+			},
+		},
     },
 
     -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
@@ -104,5 +119,8 @@ vim.lsp.config('ruff', {
 })
 
 vim.lsp.enable('ruff')
+
+vim.lsp.config('clangd', {})
+vim.lsp.enable('clangd')
 
 vim.diagnostic.config({ virtual_text = true })
