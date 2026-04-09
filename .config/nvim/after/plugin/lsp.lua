@@ -12,6 +12,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', opts)
     vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help({border="single"})<cr>', opts)
     vim.keymap.set('n', 'gq', '<cmd>lua vim.lsp.buf.format()<cr>', opts)
+    vim.keymap.set('n', '<leader>rn', "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+    vim.keymap.set('n', 'ga', "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
   end
 })
 
@@ -73,7 +75,12 @@ blink.setup({
     -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
     --
     -- See the fuzzy documentation for more information
-    fuzzy = { implementation = "prefer_rust_with_warning"},
+    fuzzy = {
+        implementation = "prefer_rust_with_warning",
+        prebuilt_binaries = {
+            force_version = "v1.6.0",
+        },
+    },
 
     --signature = { enabled = true },
     cmdline = {
@@ -102,23 +109,36 @@ vim.lsp.config("pylsp", {
         yapf = {
             enabled = false,
         },
+        pylsp_mypy = {
+            enabled = true,
+            report_progress = true,
+            live_mode = false,
+            dmypy = true,
+        },
+        ruff = {
+            enabled = true,
+            format = { "I" },
+            formatEnabled = true,
+            unsafeFixes = true,
+        },
+        rope_completion = {
+            enabled = false,
+        },
+        rope_rename = {
+            enabled = false,
+        },
+        pylsp_rope = {
+            rename = true,
+        },
+        jedi_completion = {
+            enabled = true,
+            fuzzy = true,
+        },
       }
     }
   }
 })
 vim.lsp.enable('pylsp')
-
-vim.lsp.config('ruff', {
-  init_options = {
-      settings = {
-          -- Ruff language server settings go here
-          fixAll = true,
-          organizeImports = true
-      }
-  }
-})
-
-vim.lsp.enable('ruff')
 
 vim.lsp.config('clangd', {})
 vim.lsp.enable('clangd')

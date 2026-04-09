@@ -84,10 +84,10 @@ _G.packer_plugins = {
     path = "/home/alikaleg/.local/share/nvim/site/pack/packer/start/blink.cmp",
     url = "https://github.com/saghen/blink.cmp"
   },
-  ["desert.vim"] = {
+  ["cyberdream.nvim"] = {
     loaded = true,
-    path = "/home/alikaleg/.local/share/nvim/site/pack/packer/start/desert.vim",
-    url = "https://github.com/fugalh/desert.vim"
+    path = "/home/alikaleg/.local/share/nvim/site/pack/packer/start/cyberdream.nvim",
+    url = "https://github.com/scottmckendry/cyberdream.nvim"
   },
   ["diffview.nvim"] = {
     loaded = true,
@@ -112,7 +112,7 @@ _G.packer_plugins = {
   ["leap.nvim"] = {
     loaded = true,
     path = "/home/alikaleg/.local/share/nvim/site/pack/packer/start/leap.nvim",
-    url = "https://github.com/ggandor/leap.nvim"
+    url = "https://codeberg.org/andyg/leap.nvim"
   },
   ["mason.nvim"] = {
     loaded = true,
@@ -159,11 +159,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/alikaleg/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
-  },
-  ["papercolor-theme"] = {
-    loaded = true,
-    path = "/home/alikaleg/.local/share/nvim/site/pack/packer/start/papercolor-theme",
-    url = "https://github.com/NLKNguyen/papercolor-theme"
   },
   ["plenary.nvim"] = {
     loaded = true,

@@ -107,12 +107,13 @@ alias vim=nvim
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Set up fzf key bindings and fuzzy completion
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source <(fzf --zsh)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#source <(fzf --zsh)
 
 export EDITOR=nvim
 
 export PATH="/home/alikaleg/.local/bin:$PATH"
+export PATH="$PATH:/usr/local/go/bin"
 # alias c2="/home/alikaleg/work/c2cli/.venv/bin/c2"
 
 . /home/alikaleg/.config/c2/c2completion.zsh

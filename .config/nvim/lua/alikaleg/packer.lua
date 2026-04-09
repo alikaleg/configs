@@ -10,20 +10,11 @@ return require('packer').startup(function(use)
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
-    --[[use ({
-        'rose-pine/neovim', as = 'rose-pine',
-        config = function()
-            vim.cmd('colorscheme rose-pine')
-        end
-    })]]
-    use 'NLKNguyen/papercolor-theme'
-
     use 'williamboman/mason.nvim'
     use 'neovim/nvim-lspconfig'
 
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-    use 'fugalh/desert.vim'
     use 'nvim-tree/nvim-web-devicons'
 
     use {
@@ -34,7 +25,10 @@ return require('packer').startup(function(use)
         end,
     }
 
-    use 'f-person/git-blame.nvim'
+    use {
+        'f-person/git-blame.nvim',
+        branch = "main",
+    }
     use({
         "aserowy/tmux.nvim",
         config = function() return require("tmux").setup() end
@@ -58,14 +52,7 @@ return require('packer').startup(function(use)
             "nvim-lua/plenary.nvim",         -- required
         },
     })
-    use 'ggandor/leap.nvim'
-
-    use({
-        'saghen/blink.cmp',
-        requires = {
-            "rafamadriz/friendly-snippets",
-        },
-    })
+    use 'https://codeberg.org/andyg/leap.nvim'
 
     use({
         "folke/noice.nvim",
@@ -74,8 +61,16 @@ return require('packer').startup(function(use)
             "rcarriga/nvim-notify",
         },
     })
+    use({
+        'saghen/blink.cmp',
+        tag = 'v1.10.2',
+        requires = {
+            "rafamadriz/friendly-snippets",
+        },
+    })
 
     use "stevearc/aerial.nvim"
+    use { "scottmckendry/cyberdream.nvim" }
 
     --use 'TabbyML/vim-tabby'
 end)

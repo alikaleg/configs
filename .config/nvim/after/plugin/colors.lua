@@ -1,4 +1,4 @@
---[[ require("rose-pine").setup({
+--[[require("rose-pine").setup({
     variant = "main", -- auto, main, moon, or dawn
     dark_variant = "main", -- main, moon, or dawn
     dim_inactive_windows = false,
@@ -76,13 +76,17 @@ require("rose-pine").setup({
 		TelescopeSelection = { fg = "text", bg = "base" },
 		TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
 	},
-})
-]]
+})]]
 -- rose-pine
 -- desert
 --
-vim.opt.background = "dark"
-vim.cmd("colorscheme PaperColor")
+--vim.opt.background = "light"
+--vim.cmd("colorscheme PaperColor")
+
+require("cyberdream").setup({
+    variant="dark",
+})
+vim.cmd("colorscheme cyberdream")
 
 vim.api.nvim_set_hl(0, 'NormalFloat', {
     link = 'Pmenu',

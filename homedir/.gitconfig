@@ -13,3 +13,6 @@
 
 [core]
     editor = nvim
+	excludesFile = ~/.gitignore
+[http]
+	sslVerify = False
