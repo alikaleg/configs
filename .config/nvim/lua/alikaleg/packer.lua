@@ -70,7 +70,12 @@ return require('packer').startup(function(use)
     })
 
     use "stevearc/aerial.nvim"
-    use { "scottmckendry/cyberdream.nvim" }
-
-    --use 'TabbyML/vim-tabby'
+    use "scottmckendry/cyberdream.nvim"
+    
+    use "folke/snacks.nvim"
+    use "nickjvandyke/opencode.nvim"
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
 end)

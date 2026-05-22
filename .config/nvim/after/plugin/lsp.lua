@@ -110,7 +110,7 @@ vim.lsp.config("pylsp", {
             enabled = false,
         },
         pylsp_mypy = {
-            enabled = true,
+            enabled = false,
             report_progress = true,
             live_mode = false,
             dmypy = true,

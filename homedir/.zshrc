@@ -117,3 +117,12 @@ export PATH="$PATH:/usr/local/go/bin"
 # alias c2="/home/alikaleg/work/c2cli/.venv/bin/c2"
 
 . /home/alikaleg/.config/c2/c2completion.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# opencode
+export PATH=/home/alikaleg/.opencode/bin:$PATH
+export NODE_TLS_REJECT_UNAUTHORIZED=0
+export NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
