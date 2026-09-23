@@ -83,11 +83,15 @@ require("rose-pine").setup({
 --vim.opt.background = "light"
 --vim.cmd("colorscheme PaperColor")
 
-require("cyberdream").setup({
+--[[require("cyberdream").setup({
     variant="dark",
 })
 vim.cmd("colorscheme cyberdream")
+]]
+require("kanagawa").setup({})
+vim.cmd("colorscheme kanagawa-wave")
 
-vim.api.nvim_set_hl(0, 'NormalFloat', {
-    link = 'Pmenu',
-})
+
+--vim.api.nvim_set_hl(0, 'NormalFloat', {
+ --   link = 'Pmenu',
+--})

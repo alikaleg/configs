@@ -4,6 +4,12 @@ require("lualine").setup({
       {
         require("opencode").statusline,
       },
+    },
+    lualine_c = {
+        {
+            "filename",
+            path = 1,
+        }
     }
   }
 })

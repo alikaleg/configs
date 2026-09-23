@@ -315,6 +315,8 @@ globalkeys = gears.table.join(
     -- Prompt
     awful.key({ modkey },            "r",     function () awful.spawn.with_shell("rofi -show drun -modes \"drun,window\"") end,
               {description = "run prompt", group = "launcher"}),
+    awful.key({},"Print", function () awful.spawn.with_shell("flameshot gui") end,
+              {description = "screenshot", group = "launcher"}),
     awful.key({ modkey },            "w",     function () awful.spawn.with_shell("rofi -show window -modes \"drun,window\"") end,
               {description = "switch windows prompt", group = "launcher"}),
 

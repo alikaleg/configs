@@ -71,6 +71,7 @@ return require('packer').startup(function(use)
 
     use "stevearc/aerial.nvim"
     use "scottmckendry/cyberdream.nvim"
+    use "rebelot/kanagawa.nvim"
     
     use "folke/snacks.nvim"
     use "nickjvandyke/opencode.nvim"
@@ -78,4 +79,10 @@ return require('packer').startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
+    use({
+        "stevearc/oil.nvim",
+        config = function()
+            require("oil").setup()
+        end,
+    })
 end)

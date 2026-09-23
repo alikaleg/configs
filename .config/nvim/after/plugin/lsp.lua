@@ -140,6 +140,8 @@ vim.lsp.config("pylsp", {
 })
 vim.lsp.enable('pylsp')
 
+vim.lsp.enable('rust_analyzer')
+
 vim.lsp.config('clangd', {})
 vim.lsp.enable('clangd')
 
