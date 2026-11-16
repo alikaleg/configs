@@ -1,0 +1,57 @@
+{
+    "$schema": "https://opencode.ai/config.json",
+    "permission": {
+        "read": {
+            "*": "allow",
+            "*.env": "deny",
+            "*.env.*": "deny",
+            "*.env.example": "allow",
+            "*.key": "deny"
+        }
+    },
+    "experimental": {
+        "openTelemetry": false
+    },
+    "provider": {
+        "croc_deepseek_4_flash": {
+            "npm": "@ai-sdk/openai-compatible",
+            "name": "CROC deepseek 4 flash",
+            "options": {
+                "baseURL": "https://crocgpt.croc.ru/MiniMax"
+            },
+            "models": {
+                "DeepSeek-V4-Flash": {
+                    "name": "CROC local deepseek v4",
+                }
+            }
+        },
+        "croc_qwen_opus": {
+            "npm": "@ai-sdk/openai-compatible",
+            "name": "CROC Qwen Opus",
+            "options": {
+                "baseURL": "https://crocgpt.croc.ru/QwenOpus"
+            },
+            "models": {
+                "QwenOpus": {
+                    "name": "CROC local QwenOpus"
+                }
+            }
+        }
+    },
+    "agent": {
+        "build": {
+            "permission": {
+                "bash": {
+                    "*": "ask",
+                    "git *": "allow",
+                    "git commit *": "ask",
+                    "git push *": "deny",
+                    "grep *": "allow"
+                },
+                "edit": "ask"
+            }
+        }
+    },
+    "disabled_providers": ["opencode"],
+    "share": "disabled"
+}
