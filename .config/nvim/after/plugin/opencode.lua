@@ -18,7 +18,3 @@ vim.keymap.set({ "n", "x" }, "<leader>oa",
 vim.keymap.set({ "n", "x" }, "<leader>ox",
   function() require("opencode").select() end,
   { desc = "Select opencode…" })
--- Toggle the opencode terminal
-vim.keymap.set({ "n", "t" }, "<leader>ot",
-  function() require("opencode").toggle() end,
-  { desc = "Toggle opencode" })

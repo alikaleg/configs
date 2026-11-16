@@ -88,8 +88,11 @@ require("rose-pine").setup({
 })
 vim.cmd("colorscheme cyberdream")
 ]]
+
 require("kanagawa").setup({})
 vim.cmd("colorscheme kanagawa-wave")
+--
+--vim.cmd("colorscheme pustota")
 
 
 --vim.api.nvim_set_hl(0, 'NormalFloat', {
