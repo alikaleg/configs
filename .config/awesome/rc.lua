@@ -111,7 +111,58 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+local dpi = require("beautiful.xresources").apply_dpi
+
+mytextclock = wibox.widget.textclock("%H:%M", 30)
+mytextclock.font = "BlexMono Nerd Font Mono Medium 12"
+
+-- {{{ Bar widgets (lain)
+local battery = lain.widget.bat {
+    battery = "BAT0",
+    ac      = "AC",
+    timeout = 30,
+    settings = function()
+        widget:set_markup(("󰁹 %s%%"):format(bat_now.perc or "?"))
+    end,
+}
+
+local volume = lain.widget.pulse {
+    timeout = 5,
+    settings = function()
+        local icon = volume_now.muted == "yes" and "󰖁" or "󰕾"
+        widget:set_markup(("%s %s%%"):format(icon, volume_now.left or "?"))
+    end,
+}
+volume.widget:buttons(gears.table.join(
+    awful.button({}, 4, function() awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%") end),
+    awful.button({}, 5, function() awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%") end),
+    awful.button({}, 1, function() awful.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle") end)))
+
+local cpu = lain.widget.cpu {
+    timeout = 2,
+    settings = function()
+        widget:set_markup((" %s%%"):format(cpu_now.usage))
+    end,
+}
+
+local mem = lain.widget.mem {
+    timeout = 5,
+    settings = function()
+        widget:set_markup(("󰍛 %s%%"):format(mem_now.perc))
+    end,
+}
+
+local net = lain.widget.net {
+    iface      = "wlp2s0",
+    timeout    = 3,
+    wifi_state = "on",
+    eth_state  = "on",
+    settings   = function()
+        local icon = net_now.state == "up" and "󰖩" or "󰖪"
+        widget:set_markup(("%s %s"):format(icon, net_now.state or "down"))
+    end,
+}
+-- }}}
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -200,24 +251,38 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = 20})
+    s.mywibox = awful.wibar {
+        position = "top", screen = s,
+        height = beautiful.wibar_height,
+    }
 
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            -- mylauncher,
-            s.mytaglist,
-            -- s.mypromptbox,
+            wibox.container.margin(s.mytaglist, dpi(8), dpi(8), dpi(1), dpi(1)),
         },
-        s.mytasklist, -- Middle widget
+        wibox.container.constraint(s.mytasklist, "max", math.floor(s.geometry.width * 0.45)), -- Middle (clipped if long)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
-            wibox.widget.systray(),
-            mytextclock,
-            s.mylayoutbox,
+            wibox.container.margin(wibox.widget {
+                layout = wibox.layout.fixed.horizontal,
+                spacing = dpi(12),
+                net.widget,
+                cpu.widget,
+                mem.widget,
+                battery.widget,
+                volume.widget,
+                wibox.widget {
+                    markup = '<span foreground="#45475a">│</span>',
+                    widget = wibox.widget.textbox,
+                },
+                mykeyboardlayout,
+                wibox.container.margin(wibox.widget.systray(), 0, 0, dpi(6), dpi(6)),
+                mytextclock,
+                s.mylayoutbox,
+            }, dpi(8), dpi(8), dpi(2), dpi(2)),
         },
     }
 end)
@@ -317,6 +382,15 @@ globalkeys = gears.table.join(
               {description = "run prompt", group = "launcher"}),
     awful.key({},"Print", function () awful.spawn.with_shell("flameshot gui") end,
               {description = "screenshot", group = "launcher"}),
+    awful.key({}, "XF86AudioRaiseVolume",
+              function () awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%") end,
+              {description = "volume up", group = "media"}),
+    awful.key({}, "XF86AudioLowerVolume",
+              function () awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%") end,
+              {description = "volume down", group = "media"}),
+    awful.key({}, "XF86AudioMute",
+              function () awful.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle") end,
+              {description = "mute", group = "media"}),
     awful.key({ modkey },            "w",     function () awful.spawn.with_shell("rofi -show window -modes \"drun,window\"") end,
               {description = "switch windows prompt", group = "launcher"}),
 
@@ -575,4 +649,3 @@ awful.spawn.with_shell("numlockx")
 awful.spawn.with_shell("setxkbmap -layout \"us,ru\" -option grp:alt_shift_toggle")
 awful.spawn.with_shell("picom --daemon")
 awful.spawn.with_shell("bash ~/.screenlayout/home.sh")
-awful.spawn.with_shell("sleep 1; nitrogen --restore")

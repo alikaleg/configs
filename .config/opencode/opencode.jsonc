@@ -6,7 +6,8 @@
             "*.env": "deny",
             "*.env.*": "deny",
             "*.env.example": "allow",
-            "*.key": "deny"
+            "*.key": "deny",
+            "id_rsa": "deny"
         }
     },
     "experimental": {
@@ -21,6 +22,10 @@
             },
             "models": {
                 "DeepSeek-V4-Flash": {
+                    "limit": {
+                        "context": 500000,
+                        "output": 500000
+                    },
                     "name": "CROC local deepseek v4",
                 }
             }

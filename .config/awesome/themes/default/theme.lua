@@ -7,29 +7,35 @@ local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
 local gfs = require("gears.filesystem")
-local themes_path = gfs.get_themes_dir()
+local themes_path = gfs.get_configuration_dir() .. "themes/"
+local shape = require("gears.shape")
 
 local theme = {}
 
 theme.font          = "BlexMono Nerd Font Mono Medium 11"
 
-theme.bg_normal     = "#222222"
---theme.bg_focus      = "#535d6c"
+theme.bg_normal     = "#1e1e2e"
 theme.bg_focus      = "#4A628A"
-theme.bg_urgent     = "#ff0000"
-theme.bg_minimize   = "#444444"
-theme.bg_systray    = theme.bg_normal
+theme.bg_urgent     = "#f38ba8"
+theme.bg_minimize   = "#313244"
+theme.bg_systray    = "#00000000"
 
-theme.fg_normal     = "#aaaaaa"
+theme.fg_normal     = "#cdd6f4"
 theme.fg_focus      = "#ffffff"
-theme.fg_urgent     = "#ffffff"
-theme.fg_minimize   = "#ffffff"
+theme.fg_urgent     = "#1e1e2e"
+theme.fg_minimize   = "#a6adc8"
 
 theme.useless_gap   = dpi(5)
 theme.border_width  = dpi(1)
 theme.border_normal = "#000000"
 theme.border_focus  = "#535d6c"
 theme.border_marked = "#91231c"
+
+-- Bar
+theme.wibar_height       = dpi(30)
+theme.wibar_bg           = "#1e1e2e"  -- opaque: no compositor (picom) installed
+theme.wibar_fg           = theme.fg_normal
+theme.wibar_border_width = 0
 
 -- There are other variable sets
 -- overriding the default one when
@@ -44,14 +50,36 @@ theme.border_marked = "#91231c"
 -- Example:
 --theme.taglist_bg_focus = "#ff0000"
 
--- Generate taglist squares:
-local taglist_square_size = dpi(4)
-theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
-    taglist_square_size, theme.fg_normal
-)
-theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
-    taglist_square_size, theme.fg_normal
-)
+-- Taglist: rounded pills
+theme.taglist_font                = "BlexMono Nerd Font Mono Medium 12"
+theme.taglist_spacing             = dpi(4)
+theme.taglist_disable_icon        = true
+theme.taglist_bg_occupied         = "#00000000"
+theme.taglist_fg_occupied         = theme.fg_minimize
+theme.taglist_bg_focus            = theme.bg_focus
+theme.taglist_fg_focus            = theme.fg_focus
+theme.taglist_bg_urgent           = theme.bg_urgent
+theme.taglist_fg_urgent           = theme.bg_normal
+theme.taglist_shape               = function(cr, w, h) shape.rounded_rect(cr, w, h, dpi(6)) end
+theme.taglist_shape_border_width  = 0
+
+-- Tasklist
+theme.tasklist_font               = "BlexMono Nerd Font Mono Medium 12"
+theme.tasklist_disable_icon       = true
+theme.tasklist_bg_normal          = "#00000000"
+theme.tasklist_fg_normal          = theme.fg_minimize
+theme.tasklist_bg_focus           = "#45475a"
+theme.tasklist_fg_focus           = theme.fg_focus
+theme.tasklist_spacing            = dpi(4)
+theme.tasklist_shape              = function(cr, w, h) shape.rounded_rect(cr, w, h, dpi(6)) end
+theme.tasklist_shape_border_width = 0
+
+-- Tooltips
+theme.tooltip_bg_color     = "#181825"
+theme.tooltip_fg_color     = theme.fg_normal
+theme.tooltip_border_color = theme.bg_focus
+theme.tooltip_border_width = dpi(1)
+theme.tooltip_opacity      = 0.95
 
 -- Variables set for theming notifications:
 -- notification_font
@@ -98,7 +126,8 @@ theme.titlebar_maximized_button_focus_inactive  = themes_path.."default/titlebar
 theme.titlebar_maximized_button_normal_active = themes_path.."default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = themes_path.."default/titlebar/maximized_focus_active.png"
 
-theme.wallpaper = themes_path.."default/background.png"
+-- theme.wallpaper = themes_path.."default/background.png"
+theme.wallpaper = themes_path.."default/wallpapers/night_alone.jpg"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path.."default/layouts/fairhw.png"
